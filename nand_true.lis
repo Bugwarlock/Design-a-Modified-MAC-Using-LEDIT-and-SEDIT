@@ -1,0 +1,838 @@
+ ****** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******                   
+  Copyright (C) 2008 Synopsys, Inc. All Rights Reserved.                        
+  Unpublished-rights reserved under US copyright laws.
+  This program is protected by law and is subject to the 
+  terms and conditions of the license agreement found in:
+    C:\synopsys\Hspice_A-2008.03\license.warn
+  Use of this program is your acceptance to be bound by this 
+  license agreement. HSPICE is the trademark of Synopsys, Inc.
+  Input File: c:\users\mamad\desktop\avlsi_ca1_mohammad_hashemi_810197423\hspice
+ Init: read install configuration file: C:\synopsys\Hspice_A-2008.03\meta.cfg
+ Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini
+
+
+
+
+ vinb 6 gnd pulse(0v 5v 0ns 5ns 5ns 48ns 120ns)
+ vdd vdd gnd 5v
+ cpar1 vdd 0 c=574.7025f
+ * warning: node 2 has zero nodal parasitic capacitance.
+ cpar2 gnd 0 c=445.369f
+ cpar3 4 0 c=212.472f
+ cpar4 out 0 c=494.021f
+ * warning: node 6 has zero nodal parasitic capacitance.
+
+ m1 vdd 2 out vdd pm l=8u w=11.5u ad=155.25p pd=50u as=178.25p ps=54u 
+ * m1 drain gate source bulk (173.5 18.5 181.5 30) 
+ m2 out 6 vdd vdd pm l=8u w=11.5u ad=178.25p pd=54u as=155.25p ps=50u 
+ * m2 drain gate source bulk (49 18.5 57 30) 
+ m3 4 2 out gnd nm l=8u w=11.5u ad=172.5p pd=53u as=161p ps=51u 
+ * m3 drain gate source bulk (173.5 -53 181.5 -41.5) 
+ m4 4 6 gnd gnd nm l=8u w=11.5u ad=172.5p pd=53u as=161p ps=51u 
+ * m4 drain gate source bulk (49 -52.5 57 -41) 
+
+ .model pm pmos
+ .model nm nmos
+ .op all
+ .tran 1ns 540ns 0.1ns
+ .print tran v(vina) v(vinb) v(out)
+
+ ***********************************************************************
+ ** runlvl is invoked, you can disable it by:
+      a) Add option runlvl=0 to your current simulation job.
+      b) Copy $installdir/hspice.ini to your HOME directory and
+         customize it by adding option runlvl=0, which disables
+         it for all of your simulation jobs.
+      c) Re-invoke $installdir/bin/config program and unselect the
+         option runlvl setting in box 'hspice.ini' which disables
+         it for whole group simulation jobs.
+
+ ** runlvl is invoked, some options are ignored or automatically set:
+      Options below are automatically set(user setting will overwrite them):
+      if runlvl=6,            .option bypass=0
+      if runlvl=[1|2|3|4|5],  .option bypass=2
+
+      Options below are ignored, they are replaced by automated algorithms:
+        lvltim    dvdt      ft    fast   trtol  absvar  relvar
+          relq  chgtol    dvtr    imin    itl3    rmax
+
+ ** runlvl is invoked, actual option value used by HSPICE are:
+       runlvl= 3       bypass= 2      mbypass=   2.00   bytol= 100.00u
+ ***********************************************************************
+
+
+ **warning** recommend to set start explicitly:
+             .TRAN tstep tstop START=val
+
+
+1****** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******                   
+ ******  
+ vina 2 gnd pulse(0v 5v 0ns 5ns 5ns 48ns 120ns)                                 
+  ******  mos   model parameters           tnom=  25.000 temp=  25.000          
+ ******  
+ ***************************************************************************
+ *** common model parameters  model name:   0:pm       model type:pmos   ***
+ ***************************************************************************
+     names  values   units     names  values   units     names  values   units
+     -----  ------   -----     -----  ------   -----     -----  ------   -----
+
+   1*** geometry parameters ***
+       ld=   0.    meters      lmlt=   1.00                wd=   0.    meters 
+     wmlt=   1.00                xl=   0.    meters        xw=   0.    meters 
+     lref=   0.    meters      wref=   0.    meters      lref=   0.    meters 
+     wref=   0.    meters     xlref=   0.    meters     xwref=   0.    meters 
+     lmin=   0.    meters      wmin=   0.    meters      lmax=   0.    meters 
+     wmax=   0.    meters 
+
+   2*** threshold voltage parameters ***
+      vto=-133.88m volts        nss=   0.    1/cm**2      tpg=   1.00         
+      phi= 579.84m volts      gamma= 527.63m v**0.5      bulk=  gnd           
+    ngate=   0.    cm**3       nsub= 1.0e+15 1/cm**3   delvto=   0.    volts  
+
+   3*** gate overlap capacitance parameters ***
+     cgbo=   0.    f/meter     cgdo=   0.    f/meter     cgso=   0.    f/meter
+     meto=   0.    meters 
+
+   4*** gate capacitance parameters ***
+    capop=   2.00               cf1=   0.    volts        cf2= 100.00m volts  
+      cf3=   1.00  volts        cf4=  50.00               cf5= 666.67m        
+      cf6= 500.00               xqc= 500.00m              tox= 100.00n meters 
+      cox= 345.31u f/m**2 
+
+   5*** diffusion parasitic parameters ***
+      acm=   0.                  is=  10.00f amps          js=   0.    a/m**2 
+      jsw=   0.    amp/m        nds=   1.00               cbd=   0.    farad  
+      cbs=   0.    farad         cj= 101.85u f/m**2      cjsw=   0.    f/m    
+   cjgate=   0.    f/m           mj= 500.00m             mjsw= 330.00m        
+       pb= 800.00m volts        php= 800.00m volts         tt=   0.    secs   
+     hdif=   0.    meters      ldif=   0.    meters        rd=   0.    ohms   
+       rs=   0.    ohms         rsh=   0.    ohms/sq       fc=   0.           
+    alpha=   0.                 vcr=   0.    volts      iirat=   0.           
+      rdc=   0.    ohms         rsc=   0.    ohms           n=   1.00         
+     vnds=  -1.00  volts  
+
+   6*** temperature effect parameters ***
+     tlev=   0.               tlevc=   0.                  eg=   1.11  ev     
+     gap1= 702.00u ev/deg      gap2=   1.11k deg          xti=   0.           
+      bex=  -1.50               tcv=   0.    v/deg k      trd=   0.    /deg   
+      trs=   0.    /deg         cta=   0.    /deg         ctp=   0.    /deg   
+
+   7*** noise parameters ***
+       kf=   0.                  af=   1.00              nlev=   2.00         
+   gdsnoi=   1.00         
+
+   ***  level  1  model parameters  ***
+
+   lambda=   0.    /v            kp=   8.63u a/v**2 
+ ***************************************************************************
+ *** common model parameters  model name:   0:nm       model type:nmos   ***
+ ***************************************************************************
+     names  values   units     names  values   units     names  values   units
+     -----  ------   -----     -----  ------   -----     -----  ------   -----
+
+   1*** geometry parameters ***
+       ld=   0.    meters      lmlt=   1.00                wd=   0.    meters 
+     wmlt=   1.00                xl=   0.    meters        xw=   0.    meters 
+     lref=   0.    meters      wref=   0.    meters      lref=   0.    meters 
+     wref=   0.    meters     xlref=   0.    meters     xwref=   0.    meters 
+     lmin=   0.    meters      wmin=   0.    meters      lmax=   0.    meters 
+     wmax=   0.    meters 
+
+   2*** threshold voltage parameters ***
+      vto= 133.88m volts        nss=   0.    1/cm**2      tpg=   1.00         
+      phi= 579.84m volts      gamma= 527.63m v**0.5      bulk=  gnd           
+    ngate=   0.    cm**3       nsub= 1.0e+15 1/cm**3   delvto=   0.    volts  
+
+   3*** gate overlap capacitance parameters ***
+     cgbo=   0.    f/meter     cgdo=   0.    f/meter     cgso=   0.    f/meter
+     meto=   0.    meters 
+
+   4*** gate capacitance parameters ***
+    capop=   2.00               cf1=   0.    volts        cf2= 100.00m volts  
+      cf3=   1.00  volts        cf4=  50.00               cf5= 666.67m        
+      cf6= 500.00               xqc= 500.00m              tox= 100.00n meters 
+      cox= 345.31u f/m**2 
+
+   5*** diffusion parasitic parameters ***
+      acm=   0.                  is=  10.00f amps          js=   0.    a/m**2 
+      jsw=   0.    amp/m        nds=   1.00               cbd=   0.    farad  
+      cbs=   0.    farad         cj= 101.85u f/m**2      cjsw=   0.    f/m    
+   cjgate=   0.    f/m           mj= 500.00m             mjsw= 330.00m        
+       pb= 800.00m volts        php= 800.00m volts         tt=   0.    secs   
+     hdif=   0.    meters      ldif=   0.    meters        rd=   0.    ohms   
+       rs=   0.    ohms         rsh=   0.    ohms/sq       fc=   0.           
+    alpha=   0.                 vcr=   0.    volts      iirat=   0.           
+      rdc=   0.    ohms         rsc=   0.    ohms           n=   1.00         
+     vnds=  -1.00  volts  
+
+   6*** temperature effect parameters ***
+     tlev=   0.               tlevc=   0.                  eg=   1.11  ev     
+     gap1= 702.00u ev/deg      gap2=   1.11k deg          xti=   0.           
+      bex=  -1.50               tcv=   0.    v/deg k      trd=   0.    /deg   
+      trs=   0.    /deg         cta=   0.    /deg         ctp=   0.    /deg   
+
+   7*** noise parameters ***
+       kf=   0.                  af=   1.00              nlev=   2.00         
+   gdsnoi=   1.00         
+
+   ***  level  1  model parameters  ***
+
+   lambda=   0.    /v            kp=  20.72u a/v**2 
+
+ **warning** dc voltage reset to initial transient source value
+             in source        0:vinb                new dc=  0.0000D+00
+
+
+ **warning** both nodes of capacitor     0:cpar2            defined in subckt 0               
+             are connected together
+
+ **warning**  attempt to reference undefined node     0:vina            
+  in the definition of v(vina,0)
+   branch - output ignored
+
+ **warning**  attempt to reference undefined node     0:vinb            
+  in the definition of v(vinb,0)
+   branch - output ignored
+
+ 
+
+
+
+ **warning**  no dc path to ground from node        0:2                defined in subckt 0               now it is connected with gdcpath
+
+
+      
+1****** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******                   
+ ******  
+ vina 2 gnd pulse(0v 5v 0ns 5ns 5ns 48ns 120ns)                                 
+  ******  operating point information      tnom=  25.000 temp=  25.000          
+ ******  
+ ***** operating point status is all       simulation time is     0.     
+    node    =voltage      node    =voltage      node    =voltage
+
+ +0:2       =   0.      0:4       =   1.2438  0:6       =   0.     
+ +0:out     =   5.0000  0:vdd     =   5.0000 
+
+
+ ****  voltage sources
+
+ subckt                        
+ element  0:vinb     0:vdd     
+  volts      0.         5.0000 
+  current    0.        -8.8062p
+  power      0.        44.0311p
+
+     total voltage source power dissipation=   44.0311p       watts
+
+
+
+
+ **** mosfets
+
+
+ subckt                                              
+ element  0:m1       0:m2       0:m3       0:m4      
+ model    0:pm       0:pm       0:nm       0:nm      
+ region       Linear     Linear     Cutoff     Cutoff
+  id         4.4031p   -4.4031p    0.         0.     
+  ibs      7.291e-22    0.       -50.0000f    0.     
+  ibd        0.       7.291e-22  -12.4378f  -12.4378f
+  vgs       -5.0000    -5.0000    -5.0000     0.     
+  vds       72.9146n  -72.9146n   -3.7562     1.2438 
+  vbs       72.9146n    0.        -5.0000     0.     
+  vth     -133.8819m -133.8819m  444.6230m  133.8819m
+  vdsat    -72.9146n  -72.9146n    0.         0.     
+  vod       -4.8661    -4.8661    -5.4446  -133.8819m
+  beta      12.4097u   12.4097u   29.7834u   29.7834u
+  gam eff  527.6252m  527.6252m  527.6252m  527.6252m
+  gm       904.8505f  904.8505f    0.         0.     
+  gds       60.3872u   60.3872u    0.         0.     
+  gmb      313.4859f  313.4859f    0.         0.     
+  cdtot     31.6969f   34.0395f   11.2401f   10.9990f
+  cgtot     31.8025f   31.8025f    9.0004f   11.5101f
+  cstot     34.0395f   31.6969f    6.0919f   19.1507f
+  cbtot     34.0008f   34.0008f   25.8328f   36.1407f
+  cgs       15.8845f   15.8845f    1.8627a    2.7527f
+  cgd       15.8845f   15.8845f  247.9435a    6.8475a
+
+
+
+ ******  
+ vina 2 gnd pulse(0v 5v 0ns 5ns 5ns 48ns 120ns)                                 
+  ******  transient analysis               tnom=  25.000 temp=  25.000          
+ ******  
+x
+
+        time    voltage    
+                    out    
+  100.00000p      5.0028   
+    1.10000n      5.0278   
+    2.10000n      5.0488   
+    3.10000n      5.0694   
+    4.10000n      5.0912   
+    5.10000n      5.1097   
+    6.10000n      5.0984   
+    7.10000n      5.0885   
+    8.10000n      5.0791   
+    9.10000n      5.0713   
+   10.10000n      5.0635   
+   11.10000n      5.0568   
+   12.10000n      5.0512   
+   13.10000n      5.0456   
+   14.10000n      5.0404   
+   15.10000n      5.0367   
+   16.10000n      5.0330   
+   17.10000n      5.0293   
+   18.10000n      5.0256   
+   19.10000n      5.0234   
+   20.10000n      5.0214   
+   21.10000n      5.0194   
+   22.10000n      5.0173   
+   23.10000n      5.0153   
+   24.10000n      5.0133   
+   25.10000n      5.0113   
+   26.10000n      5.0106   
+   27.10000n      5.0099   
+   28.10000n      5.0092   
+   29.10000n      5.0085   
+   30.10000n      5.0078   
+   31.10000n      5.0071   
+   32.10000n      5.0064   
+   33.10000n      5.0057   
+   34.10000n      5.0050   
+   35.10000n      5.0043   
+   36.10000n      5.0036   
+   37.10000n      5.0029   
+   38.10000n      5.0022   
+   39.10000n      5.0015   
+   40.10000n      5.0013   
+   41.10000n      5.0012   
+   42.10000n      5.0011   
+   43.10000n      5.0010   
+   44.10000n      5.0009   
+   45.10000n      5.0009   
+   46.10000n      5.0008   
+   47.10000n      5.0007   
+   48.10000n      5.0006   
+   49.10000n      5.0005   
+   50.10000n      5.0004   
+   51.10000n      5.0004   
+   52.10000n      5.0003   
+   53.10000n      4.9988   
+   54.10000n      4.9791   
+   55.10000n      4.9567   
+   56.10000n      4.9380   
+   57.10000n      4.9235   
+   58.10000n      4.9123   
+   59.10000n      4.9290   
+   60.10000n      4.9416   
+   61.10000n      4.9530   
+   62.10000n      4.9613   
+   63.10000n      4.9662   
+   64.10000n      4.9711   
+   65.10000n      4.9761   
+   66.10000n      4.9810   
+   67.10000n      4.9860   
+   68.10000n      4.9909   
+   69.10000n      4.9939   
+   70.10000n      4.9944   
+   71.10000n      4.9950   
+   72.10000n      4.9956   
+   73.10000n      4.9961   
+   74.10000n      4.9967   
+   75.10000n      4.9972   
+   76.10000n      4.9978   
+   77.10000n      4.9984   
+   78.10000n      4.9989   
+   79.10000n      4.9995   
+   80.10000n      5.0001   
+   81.10000n      5.0001   
+   82.10000n      5.0000   
+   83.10000n      5.0000   
+   84.10000n      5.0000   
+   85.10000n      4.9999   
+   86.10000n      4.9999   
+   87.10000n      4.9998   
+   88.10000n      4.9998   
+   89.10000n      4.9998   
+   90.10000n      4.9997   
+   91.10000n      4.9997   
+   92.10000n      4.9997   
+   93.10000n      4.9996   
+   94.10000n      4.9996   
+   95.10000n      4.9996   
+   96.10000n      4.9996   
+   97.10000n      4.9996   
+   98.10000n      4.9996   
+   99.10000n      4.9996   
+  100.10000n      4.9996   
+  101.10000n      4.9996   
+  102.10000n      4.9996   
+  103.10000n      4.9996   
+  104.10000n      4.9997   
+  105.10000n      4.9997   
+  106.10000n      4.9997   
+  107.10000n      4.9997   
+  108.10000n      4.9997   
+  109.10000n      4.9997   
+  110.10000n      4.9997   
+  111.10000n      4.9997   
+  112.10000n      4.9997   
+  113.10000n      4.9997   
+  114.10000n      4.9997   
+  115.10000n      4.9997   
+  116.10000n      4.9997   
+  117.10000n      4.9997   
+  118.10000n      4.9998   
+  119.10000n      4.9998   
+  120.10000n      5.0023   
+  121.10000n      5.0270   
+  122.10000n      5.0490   
+  123.10000n      5.0716   
+  124.10000n      5.0942   
+  125.10000n      5.1134   
+  126.10000n      5.1020   
+  127.10000n      5.0919   
+  128.10000n      5.0825   
+  129.10000n      5.0734   
+  130.10000n      5.0670   
+  131.10000n      5.0605   
+  132.10000n      5.0541   
+  133.10000n      5.0476   
+  134.10000n      5.0417   
+  135.10000n      5.0383   
+  136.10000n      5.0349   
+  137.10000n      5.0315   
+  138.10000n      5.0281   
+  139.10000n      5.0247   
+  140.10000n      5.0214   
+  141.10000n      5.0185   
+  142.10000n      5.0172   
+  143.10000n      5.0158   
+  144.10000n      5.0145   
+  145.10000n      5.0131   
+  146.10000n      5.0118   
+  147.10000n      5.0105   
+  148.10000n      5.0091   
+  149.10000n      5.0078   
+  150.10000n      5.0065   
+  151.10000n      5.0053   
+  152.10000n      5.0050   
+  153.10000n      5.0047   
+  154.10000n      5.0045   
+  155.10000n      5.0042   
+  156.10000n      5.0040   
+  157.10000n      5.0037   
+  158.10000n      5.0034   
+  159.10000n      5.0032   
+  160.10000n      5.0029   
+  161.10000n      5.0026   
+  162.10000n      5.0024   
+  163.10000n      5.0021   
+  164.10000n      5.0018   
+  165.10000n      5.0016   
+  166.10000n      5.0013   
+  167.10000n      5.0010   
+  168.10000n      5.0008   
+  169.10000n      5.0005   
+  170.10000n      5.0003   
+  171.10000n      5.0000   
+  172.10000n      4.9997   
+  173.10000n      4.9985   
+  174.10000n      4.9881   
+  175.10000n      4.9777   
+  176.10000n      4.9600   
+  177.10000n      4.9425   
+  178.10000n      4.9284   
+  179.10000n      4.9418   
+  180.10000n      4.9522   
+  181.10000n      4.9617   
+  182.10000n      4.9682   
+  183.10000n      4.9734   
+  184.10000n      4.9787   
+  185.10000n      4.9839   
+  186.10000n      4.9864   
+  187.10000n      4.9876   
+  188.10000n      4.9889   
+  189.10000n      4.9901   
+  190.10000n      4.9914   
+  191.10000n      4.9926   
+  192.10000n      4.9939   
+  193.10000n      4.9951   
+  194.10000n      4.9964   
+  195.10000n      4.9976   
+  196.10000n      4.9989   
+  197.10000n      5.0001   
+  198.10000n      5.0014   
+  199.10000n      5.0014   
+  200.10000n      5.0013   
+  201.10000n      5.0011   
+  202.10000n      5.0009   
+  203.10000n      5.0008   
+  204.10000n      5.0006   
+  205.10000n      5.0004   
+  206.10000n      5.0003   
+  207.10000n      5.0001   
+  208.10000n      4.9999   
+  209.10000n      4.9998   
+  210.10000n      4.9996   
+  211.10000n      4.9994   
+  212.10000n      4.9994   
+  213.10000n      4.9994   
+  214.10000n      4.9994   
+  215.10000n      4.9994   
+  216.10000n      4.9995   
+  217.10000n      4.9995   
+  218.10000n      4.9995   
+  219.10000n      4.9995   
+  220.10000n      4.9995   
+  221.10000n      4.9996   
+  222.10000n      4.9996   
+  223.10000n      4.9996   
+  224.10000n      4.9996   
+  225.10000n      4.9997   
+  226.10000n      4.9997   
+  227.10000n      4.9997   
+  228.10000n      4.9997   
+  229.10000n      4.9997   
+  230.10000n      4.9998   
+  231.10000n      4.9998   
+  232.10000n      4.9998   
+  233.10000n      4.9998   
+  234.10000n      4.9998   
+  235.10000n      4.9998   
+  236.10000n      4.9998   
+  237.10000n      4.9998   
+  238.10000n      4.9998   
+  239.10000n      4.9998   
+  240.10000n      5.0024   
+  241.10000n      5.0273   
+  242.10000n      5.0493   
+  243.10000n      5.0718   
+  244.10000n      5.0943   
+  245.10000n      5.1134   
+  246.10000n      5.1020   
+  247.10000n      5.0919   
+  248.10000n      5.0825   
+  249.10000n      5.0736   
+  250.10000n      5.0671   
+  251.10000n      5.0606   
+  252.10000n      5.0540   
+  253.10000n      5.0475   
+  254.10000n      5.0419   
+  255.10000n      5.0385   
+  256.10000n      5.0350   
+  257.10000n      5.0316   
+  258.10000n      5.0281   
+  259.10000n      5.0247   
+  260.10000n      5.0212   
+  261.10000n      5.0187   
+  262.10000n      5.0173   
+  263.10000n      5.0160   
+  264.10000n      5.0146   
+  265.10000n      5.0132   
+  266.10000n      5.0118   
+  267.10000n      5.0105   
+  268.10000n      5.0091   
+  269.10000n      5.0077   
+  270.10000n      5.0063   
+  271.10000n      5.0054   
+  272.10000n      5.0052   
+  273.10000n      5.0049   
+  274.10000n      5.0046   
+  275.10000n      5.0043   
+  276.10000n      5.0040   
+  277.10000n      5.0037   
+  278.10000n      5.0034   
+  279.10000n      5.0031   
+  280.10000n      5.0028   
+  281.10000n      5.0025   
+  282.10000n      5.0022   
+  283.10000n      5.0019   
+  284.10000n      5.0016   
+  285.10000n      5.0013   
+  286.10000n      5.0010   
+  287.10000n      5.0007   
+  288.10000n      5.0005   
+  289.10000n      5.0002   
+  290.10000n      4.9999   
+  291.10000n      4.9998   
+  292.10000n      4.9998   
+  293.10000n      4.9985   
+  294.10000n      4.9791   
+  295.10000n      4.9572   
+  296.10000n      4.9382   
+  297.10000n      4.9214   
+  298.10000n      4.9123   
+  299.10000n      4.9288   
+  300.10000n      4.9417   
+  301.10000n      4.9531   
+  302.10000n      4.9606   
+  303.10000n      4.9681   
+  304.10000n      4.9756   
+  305.10000n      4.9791   
+  306.10000n      4.9812   
+  307.10000n      4.9833   
+  308.10000n      4.9855   
+  309.10000n      4.9876   
+  310.10000n      4.9898   
+  311.10000n      4.9919   
+  312.10000n      4.9941   
+  313.10000n      4.9962   
+  314.10000n      4.9983   
+  315.10000n      5.0005   
+  316.10000n      5.0012   
+  317.10000n      5.0011   
+  318.10000n      5.0009   
+  319.10000n      5.0008   
+  320.10000n      5.0006   
+  321.10000n      5.0005   
+  322.10000n      5.0003   
+  323.10000n      5.0002   
+  324.10000n      5.0000   
+  325.10000n      4.9999   
+  326.10000n      4.9997   
+  327.10000n      4.9996   
+  328.10000n      4.9995   
+  329.10000n      4.9995   
+  330.10000n      4.9995   
+  331.10000n      4.9995   
+  332.10000n      4.9996   
+  333.10000n      4.9996   
+  334.10000n      4.9996   
+  335.10000n      4.9996   
+  336.10000n      4.9996   
+  337.10000n      4.9996   
+  338.10000n      4.9996   
+  339.10000n      4.9996   
+  340.10000n      4.9997   
+  341.10000n      4.9997   
+  342.10000n      4.9997   
+  343.10000n      4.9997   
+  344.10000n      4.9997   
+  345.10000n      4.9997   
+  346.10000n      4.9997   
+  347.10000n      4.9997   
+  348.10000n      4.9997   
+  349.10000n      4.9997   
+  350.10000n      4.9997   
+  351.10000n      4.9997   
+  352.10000n      4.9997   
+  353.10000n      4.9997   
+  354.10000n      4.9997   
+  355.10000n      4.9997   
+  356.10000n      4.9997   
+  357.10000n      4.9997   
+  358.10000n      4.9997   
+  359.10000n      4.9998   
+  360.10000n      5.0023   
+  361.10000n      5.0275   
+  362.10000n      5.0486   
+  363.10000n      5.0702   
+  364.10000n      5.0923   
+  365.10000n      5.1111   
+  366.10000n      5.0999   
+  367.10000n      5.0900   
+  368.10000n      5.0806   
+  369.10000n      5.0724   
+  370.10000n      5.0658   
+  371.10000n      5.0593   
+  372.10000n      5.0527   
+  373.10000n      5.0461   
+  374.10000n      5.0414   
+  375.10000n      5.0379   
+  376.10000n      5.0344   
+  377.10000n      5.0308   
+  378.10000n      5.0273   
+  379.10000n      5.0238   
+  380.10000n      5.0203   
+  381.10000n      5.0187   
+  382.10000n      5.0173   
+  383.10000n      5.0158   
+  384.10000n      5.0144   
+  385.10000n      5.0129   
+  386.10000n      5.0115   
+  387.10000n      5.0101   
+  388.10000n      5.0086   
+  389.10000n      5.0072   
+  390.10000n      5.0060   
+  391.10000n      5.0056   
+  392.10000n      5.0053   
+  393.10000n      5.0050   
+  394.10000n      5.0046   
+  395.10000n      5.0043   
+  396.10000n      5.0040   
+  397.10000n      5.0036   
+  398.10000n      5.0033   
+  399.10000n      5.0030   
+  400.10000n      5.0027   
+  401.10000n      5.0023   
+  402.10000n      5.0020   
+  403.10000n      5.0017   
+  404.10000n      5.0013   
+  405.10000n      5.0010   
+  406.10000n      5.0007   
+  407.10000n      5.0003   
+  408.10000n      5.0000   
+  409.10000n      5.0000   
+  410.10000n      5.0000   
+  411.10000n      5.0000   
+  412.10000n      5.0000   
+  413.10000n      4.9986   
+  414.10000n      4.9792   
+  415.10000n      4.9565   
+  416.10000n      4.9391   
+  417.10000n      4.9216   
+  418.10000n      4.9124   
+  419.10000n      4.9288   
+  420.10000n      4.9428   
+  421.10000n      4.9520   
+  422.10000n      4.9609   
+  423.10000n      4.9698   
+  424.10000n      4.9742   
+  425.10000n      4.9769   
+  426.10000n      4.9797   
+  427.10000n      4.9825   
+  428.10000n      4.9853   
+  429.10000n      4.9881   
+  430.10000n      4.9908   
+  431.10000n      4.9936   
+  432.10000n      4.9964   
+  433.10000n      4.9992   
+  434.10000n      5.0006   
+  435.10000n      5.0005   
+  436.10000n      5.0004   
+  437.10000n      5.0003   
+  438.10000n      5.0002   
+  439.10000n      5.0001   
+  440.10000n      5.0000   
+  441.10000n      4.9999   
+  442.10000n      4.9999   
+  443.10000n      4.9998   
+  444.10000n      4.9997   
+  445.10000n      4.9996   
+  446.10000n      4.9996   
+  447.10000n      4.9996   
+  448.10000n      4.9996   
+  449.10000n      4.9996   
+  450.10000n      4.9996   
+  451.10000n      4.9996   
+  452.10000n      4.9996   
+  453.10000n      4.9996   
+  454.10000n      4.9996   
+  455.10000n      4.9996   
+  456.10000n      4.9996   
+  457.10000n      4.9996   
+  458.10000n      4.9996   
+  459.10000n      4.9996   
+  460.10000n      4.9996   
+  461.10000n      4.9997   
+  462.10000n      4.9997   
+  463.10000n      4.9997   
+  464.10000n      4.9997   
+  465.10000n      4.9997   
+  466.10000n      4.9997   
+  467.10000n      4.9997   
+  468.10000n      4.9997   
+  469.10000n      4.9997   
+  470.10000n      4.9997   
+  471.10000n      4.9997   
+  472.10000n      4.9997   
+  473.10000n      4.9997   
+  474.10000n      4.9997   
+  475.10000n      4.9997   
+  476.10000n      4.9997   
+  477.10000n      4.9997   
+  478.10000n      4.9997   
+  479.10000n      4.9997   
+  480.10000n      5.0023   
+  481.10000n      5.0274   
+  482.10000n      5.0485   
+  483.10000n      5.0696   
+  484.10000n      5.0916   
+  485.10000n      5.1102   
+  486.10000n      5.0991   
+  487.10000n      5.0893   
+  488.10000n      5.0799   
+  489.10000n      5.0720   
+  490.10000n      5.0654   
+  491.10000n      5.0588   
+  492.10000n      5.0522   
+  493.10000n      5.0455   
+  494.10000n      5.0413   
+  495.10000n      5.0377   
+  496.10000n      5.0341   
+  497.10000n      5.0306   
+  498.10000n      5.0270   
+  499.10000n      5.0234   
+  500.10000n      5.0202   
+  501.10000n      5.0188   
+  502.10000n      5.0173   
+  503.10000n      5.0158   
+  504.10000n      5.0143   
+  505.10000n      5.0129   
+  506.10000n      5.0114   
+  507.10000n      5.0099   
+  508.10000n      5.0084   
+  509.10000n      5.0070   
+  510.10000n      5.0061   
+  511.10000n      5.0057   
+  512.10000n      5.0054   
+  513.10000n      5.0050   
+  514.10000n      5.0047   
+  515.10000n      5.0043   
+  516.10000n      5.0040   
+  517.10000n      5.0036   
+  518.10000n      5.0033   
+  519.10000n      5.0029   
+  520.10000n      5.0026   
+  521.10000n      5.0022   
+  522.10000n      5.0019   
+  523.10000n      5.0015   
+  524.10000n      5.0012   
+  525.10000n      5.0009   
+  526.10000n      5.0005   
+  527.10000n      5.0002   
+  528.10000n      5.0001   
+  529.10000n      5.0001   
+  530.10000n      5.0001   
+  531.10000n      5.0001   
+  532.10000n      5.0001   
+  533.10000n      4.9987   
+  534.10000n      4.9792   
+  535.10000n      4.9561   
+  536.10000n      4.9392   
+  537.10000n      4.9222   
+  538.10000n      4.9125   
+  539.10000n      4.9288   
+  540.00000n      4.9416   
+y
+
+          ***** job concluded
+1****** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******                   
+ ******  
+ vina 2 gnd pulse(0v 5v 0ns 5ns 5ns 48ns 120ns)                                 
+  ******  job statistics summary           tnom=  25.000 temp=  25.000          
+ ******  
+
+           total memory used        157 kbytes
+
+  # nodes =       6 # elements=       9
+  # diodes=       0 # bjts    =       0 # jfets   =       0 # mosfets =       4
+  # va device =       0
+
+    analysis           time    # points   tot. iter  conv.iter
+
+    op point           0.01           1           6
+    transient          0.03         541         349         150 rev=        18
+    readin             0.00
+    errchk             0.00
+    setup              0.00
+    output             0.00
+           total cpu time          0.09 seconds
+           total elapsed time         1 seconds
+               job started at  12:49:40 10/25/2019
+               job ended   at  12:49:41 10/25/2019
+
+
+ Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini

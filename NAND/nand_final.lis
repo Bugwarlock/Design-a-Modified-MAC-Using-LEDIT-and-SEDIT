@@ -1,0 +1,103 @@
+ ****** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******                   
+  Copyright (C) 2008 Synopsys, Inc. All Rights Reserved.                        
+  Unpublished-rights reserved under US copyright laws.
+  This program is protected by law and is subject to the 
+  terms and conditions of the license agreement found in:
+    C:\synopsys\Hspice_A-2008.03\license.warn
+  Use of this program is your acceptance to be bound by this 
+  license agreement. HSPICE is the trademark of Synopsys, Inc.
+  Input File: c:\users\mamad\desktop\avlsi_ca1_mohammad_hashemi_810197423\ledit\
+ Init: read install configuration file: C:\synopsys\Hspice_A-2008.03\meta.cfg
+ Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini
+
+
+
+
+ * tdb file:  c:\users\mamad\desktop\avlsi_ca1_mohammad_hashemi_810197423\ledit\nand\nand_final.tdb
+ * cell:  cell0	version 1.06
+ * extract definition file:  ..\..\..\ca1-files\ca1\l-edit\tech\mhp_n05.ext
+ * extract date and time:  10/25/2019 - 12:00
+
+ * warning:  layers with unassigned area capacitance.
+ *   <allsubs>
+ *   <lpnp collector>
+ *   <n well wire>
+ *   <lpnp emitter>
+ *   <n well resistor>
+ *   <poly wire>
+ *   <poly resistor>
+ *   <n diff resistor>
+ *   <p diff resistor>
+ *   <subs>
+ *   <metal1>
+ *   <metal1-tight>
+ *   <metal2>
+ *   <metal2-tight>
+ * warning:  layers with unassigned fringe capacitance.
+ *   <pad comment>
+ *   <allmetal1>
+ *   <allsubs>
+ *   <lpnp collector>
+ *   <n well wire>
+ *   <lpnp emitter>
+ *   <n well resistor>
+ *   <poly wire>
+ *   <ndiff>
+ *   <pdiff>
+ *   <poly resistor>
+ *   <n diff resistor>
+ *   <p diff resistor>
+ *   <subs>
+ *   <allmetal2>
+ *   <metal3>
+ *   <metal1>
+ *   <metal1-tight>
+ *   <metal2>
+ *   <metal2-tight>
+ * warning:  layers with zero resistance.
+ *   <pad comment>
+ *   <allsubs>
+ *   <lpnp collector>
+ *   <n well wire>
+ *   <lpnp emitter>
+ *   <nmos capacitor>
+ *   <poly wire>
+ *   <pmos capacitor>
+ *   <cap using cap-well>
+ *   <subs>
+ *   <metal1>
+ *   <metal1-tight>
+ *   <metal2>
+ *   <metal2-tight>
+ vdd vdd 0 dc 1.8v
+ a 6 0 pulse 0v 1.8v 0n 0.1n 0.1n 1n 2n
+  **error** (c:\users\mamad\desktop\avlsi_ca1_mohammad_hashemi_810197423\ledit\nand\nand_final.sp:59)  subcircuit name missing
+  **error** (c:\users\mamad\desktop\avlsi_ca1_mohammad_hashemi_810197423\ledit\nand\nand_final.sp:59) difficulty in reading input
+
+          ***** job aborted
+1****** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******                   
+ ******  
+ * circuit extracted by tanner research's l-edit version 8.30 / extract version 
+  ******  job statistics summary           tnom=  25.000 temp=  25.000          
+ ******  
+
+           total memory used         14 kbytes
+
+  # nodes =       0 # elements=       1
+  # diodes=       0 # bjts    =       0 # jfets   =       0 # mosfets =       0
+  # va device =       0
+
+    analysis           time    # points   tot. iter  conv.iter
+
+    op point           0.00           1           0
+    readin             0.00
+    errchk             0.00
+    setup              0.00
+    output             0.00
+           total cpu time          0.01 seconds
+           total elapsed time         1 seconds
+               job started at  12:03:38 10/25/2019
+               job ended   at  12:03:38 10/25/2019
+
+
+ Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini

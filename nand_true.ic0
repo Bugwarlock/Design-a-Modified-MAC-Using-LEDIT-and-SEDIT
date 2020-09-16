@@ -1,0 +1,18 @@
+* "simulator" "HSPICE" 
+* "version" "A-2008.03 32-BIT"
+* "format" "HSP"
+* "rundate" "12:49:40 10/25/2019 "
+* "netlist" "c:\users\mamad\desktop\avlsi_ca1_mohammad_hashemi_810197423\hspice\nand_true.sp "
+* "runtitle" "vina 2 gnd pulse(0v 5v 0ns 5ns 5ns 48ns 120ns)"
+* time =    0.            
+* temperature =   25.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ 2 =   0.            
++ 4 =   1.2438        
++ 6 =   0.            
++ out =   5.0000        
++ vdd =   5.0000        
+***   END: Saved Operating Point ***                     

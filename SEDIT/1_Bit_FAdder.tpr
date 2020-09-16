@@ -1,0 +1,12 @@
+$ TPR netlist written by S-Edit Win32 6.00
+$ Written on Oct 20, 2019 at 14:29:22
+C NAND2 A B Out;
+UNAND2_1 Cin N8 N15;
+C NAND2 A B Out;
+UNAND2_2 A B N14;
+C NAND2 A B Out;
+UNAND2_3 N15 N14 Cout;
+C XOR2 A B Out;
+UXOR2_1 A B N8;
+C XOR2 A B Out;
+UXOR2_2 Cin N8 S;
