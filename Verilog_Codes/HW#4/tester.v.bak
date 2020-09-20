@@ -1,0 +1,13 @@
+`timescale 1ns/1ns
+module cirTest ();
+  reg [3:0] wi1, wi2, wi3;
+  wire [3:0] outi;
+  
+  absolutemax MUT ( wi1, wi2, wi3, outi );
+  
+  initial begin
+    #20 wi1=4'b1101; wi2=4'b0111; wi3=4'b1110;
+    #80 $stop;
+  end
+    
+endmodule

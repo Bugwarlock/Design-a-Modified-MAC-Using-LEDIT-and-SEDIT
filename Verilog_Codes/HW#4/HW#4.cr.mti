@@ -1,0 +1,47 @@
+C:/modeltech64_10.4c/examples/HW#4/Mem_module.vhd {1 {vcom -work work -2002 -explicit C:/modeltech64_10.4c/examples/HW#4/Mem_module.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity memModule
+-- Compiling architecture proc of memModule
+
+} {} {}} C:/modeltech64_10.4c/examples/HW#4/absolutemax.v {1 {vlog -work work C:/modeltech64_10.4c/examples/HW#4/absolutemax.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module absolutemax
+
+Top level modules:
+	absolutemax
+
+} {} {}} C:/modeltech64_10.4c/examples/HW#4/component_libary.v {1 {vlog -work work C:/modeltech64_10.4c/examples/HW#4/component_libary.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module bufg
+-- Compiling module notg
+-- Compiling module and_n
+-- Compiling module or_n
+-- Compiling module nand_n
+-- Compiling module nor_n
+-- Compiling module xor_n
+-- Compiling module xnor_n
+-- Compiling module fanout_n
+-- Compiling module pin
+-- Compiling module pout
+-- Compiling module dff
+
+Top level modules:
+	bufg
+	notg
+	and_n
+	or_n
+	nand_n
+	nor_n
+	xor_n
+	xnor_n
+	fanout_n
+	pin
+	pout
+	dff
+
+} {} {}}
